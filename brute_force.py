@@ -18,7 +18,10 @@ def brute_force_match(text, pattern):
     m = len(pattern)
     result = []
 
-    if m>n:
+    if m == 0: # Empty pattern always matches at every position
+        return list(range(n + 1))
+    
+    if m > n:
         return result
 
     for i in range(n-m+1):
@@ -38,11 +41,11 @@ def brute_force_match(text, pattern):
 # Space complexity O(1)
 
 
-# text = "hello world"
-# pattern = "world"
+text = "ababcababcabc"
+pattern = "abc"
 
-text = "test this test string with test again"
-pattern = "test"
+# text = "test this test string with test again"
+# pattern = "test"
 
 # text = 'xxxxyzabcdeabtvabcyg'
 # pattern = 'abc'

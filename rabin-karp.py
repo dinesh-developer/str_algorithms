@@ -31,7 +31,10 @@ def rabin_karp_match(text, pattern):
     text_window_hash = 0  # Hash of current text window
     result = []
 
-    if m>n:
+    if m == 0: # Empty pattern always matches at every position
+        return list(range(n + 1))
+    
+    if m > n:
         return result
     
     # Calculate the hash value of pattern and first window of text
@@ -53,8 +56,14 @@ def rabin_karp_match(text, pattern):
     return result
 
 
-text = 'xxxxyzabcdeabtvabcyg'
-pattern = 'abc'
+# Time complexity O((n-m+1)*m) = O(n*m)
+
+
+# text = 'xxxxyzabcdeabtvabcyg'
+# pattern = 'abc'
+
+text = "ababcababcabc"
+pattern = "abc"
 
 result = rabin_karp_match(text, pattern)
 
